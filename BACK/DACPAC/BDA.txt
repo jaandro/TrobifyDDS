@@ -1,0 +1,1 @@
+spring.datasource.url=jdbc:sqlserver://DESKTOP-7TJ1HV9\\SQLSERVER;databaseName=TROBIFY

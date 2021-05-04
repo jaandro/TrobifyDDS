@@ -1,0 +1,25 @@
+
+.container-position{
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+}
+.container-position__parteTarjetaMapa__tarjetas{
+  width:40%;
+  
+  
+
+}
+.container-position__parteTarjetaMapa__mapa{
+ width:60%;
+ 
+}
+.mapa{
+width:100%
+}
+.tarjetas{
+width: 100%;
+}
+.filtros{
+  z-index: 5;
+}

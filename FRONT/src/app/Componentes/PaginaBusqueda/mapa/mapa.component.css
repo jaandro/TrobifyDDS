@@ -1,0 +1,50 @@
+.map-container {
+    position: sticky;
+    right: 0px;
+    top: 226.68px;
+    display: flex;
+    height: 740px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .boton-obtener-ubicacion{
+    background-color: rgb(9, 123, 158);
+    position: absolute!important;
+    z-index: 1000;
+    border-radius: 2px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 450px !important;
+    top: 19px !important;
+  }
+
+
+  agm-map {
+    height: 100%;
+    width: 100%;
+  }
+
+  #buscadorMapa {
+    background-color: #fff;
+    position: absolute!important;
+    z-index: 1000;
+    text-align: center;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    left: 250px !important;
+    top: 23px !important;
+  }
+.cursor{
+  color: 'blue';
+  font-family: '';
+  font-size: '50px';
+  font-weight: 'bold';
+  font: 50px sans-serif;
+
+}

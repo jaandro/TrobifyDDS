@@ -1,0 +1,105 @@
+.barra-navegacion{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px;
+  background-color: white;
+}
+.barra-navegacion__logoYsearch{
+  padding: 10px;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.img{
+  width: 200px;
+  height: 30px;
+}
+.barra-navegacion__logoYsearch__logoTrobify{
+
+}
+.barra-navegacion__logoYsearch__searchInput{
+
+}
+.barra-navegacion__botones{
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+.barra-navegacion__botones-publicarInmueble-estilo{
+  color:rgb(112, 168, 216);
+}
+.barra-navegacion__botones-home-estilo{
+  color:rgb(112, 168, 216);
+}
+
+
+
+
+
+/*Contenedor filtros*/
+.barra-filtros{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color:white;
+  padding: 4px;
+  padding-top: 15px;
+  position: sticky;
+  top: 0px;
+  border-bottom: 2px;
+  border-color: rgb(112, 168, 216);
+}
+.barra-filtros__tipoVivienda{
+
+}
+.barra-filtros__precioMinimo{
+  display: flex;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+.barra-filtros__precioMaximo{
+  margin-right: 30px;
+}
+.barra-filtros__superficieMinima{
+  margin-right: 30px;
+}
+.barra-filtros__superficieMaxima{
+  margin-right: 30px;
+}
+.barra-filtros__numeroHabitaciones{
+  margin-right: 30px;
+}
+.barra-filtros__numeroBaños{
+  margin-right: 30px;
+}
+
+
+/*Barra alquilar / comprar*/
+.barra-alquilarYcomprar{
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 99.47px;
+  background-color: white;
+
+}
+.barra-alquilarYcomprar__botonComprar{
+  color:rgb(112, 168, 216);
+}
+.barra-alquilarYcomprar__botonAlquilar{
+  color: rgb(112, 168, 216);
+}
+.separacion{
+  background-color: white;
+  position: sticky;
+  top: 135.3px;
+}
+.prueba{
+  font-size: 75;
+}
+.errores{
+  z-index: 5;
+}

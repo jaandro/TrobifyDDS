@@ -1,0 +1,22 @@
+
+    <div class="map-container" >
+        <agm-map class="map_container__MAPA" [latitude]="lat" [longitude]="lng" [zoom]="zoom" >
+          <agm-marker class="kk" *ngFor="let inmueble of inmuebles"  [latitude]="inmueble.latitud" [longitude]="inmueble.longitud" label={{inmueble.precio}}>
+            <agm-info-window>
+              <img *ngIf="inmueble.fotos.length != 0" src={{inmueble.fotos[0].foto}} width="170" height="150"> <br><br>
+              <p><b>Habitaciones: {{inmueble.numHabitaciones}}</b></p>
+              <p><b>Baños: {{inmueble.numBanos}}</b></p>
+              <p><b>Superficie: {{inmueble.superficie}}m²</b></p>
+              <p><b>Precio: {{inmueble.precio}}€/mes</b></p>
+              <a mat-raised-button (click)="irVisualizarInmueble(inmueble)" target="_blank">Visitar</a>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </div>
+      <div class="search" id="pac-container">
+        <input #search id="buscadorMapa" type="text" placeholder="Inserta tu ubicación">
+      </div>
+      <div class="boton-obtener-ubicacion">
+        <button mat-raised-button (click)="obtenerUbicacionActual()">Obtener tu ubicación actual</button>
+      </div>
+

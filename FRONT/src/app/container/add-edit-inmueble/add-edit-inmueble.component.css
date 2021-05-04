@@ -1,0 +1,12 @@
+.leftside_container {
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+.righttside_container {
+  padding: 10px;
+  width: 50%;
+  /* text-align: center; */
+  /* display: inline-block; */
+}

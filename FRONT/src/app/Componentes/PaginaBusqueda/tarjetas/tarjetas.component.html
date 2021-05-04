@@ -1,0 +1,30 @@
+<mat-card *ngFor="let inmueble of inmuebles" class = "card" >
+    <mat-card-header class = "header">
+      <mat-card-title id="title">{{inmueble.precio}} €/mes</mat-card-title>
+      <mat-card-subtitle id = "title" class = "subtitle">{{inmueble.numHabitaciones}} habitaciones · {{inmueble.numBanos}} baños · {{inmueble.superficie}}m²</mat-card-subtitle>
+      <p id="text">
+        {{inmueble.descripcion}}
+      </p>
+    </mat-card-header>
+    <mat-card-content class = "content">
+      <img *ngIf="inmueble.fotos.length != 0" id="image" class ="img"
+                      mat-card-image
+                      src={{inmueble.fotos[0].foto}}
+                      alt = "google"
+                  />
+   <div class = "buttons">
+          <button mat-button id="bContact">
+                Contactar
+          </button>
+
+          <button mat-button id="+Info" (click)="enviarInmueble(inmueble)">
+                Ver Inmueble
+          </button>
+
+              <span id="bLike" class = "material-icons">favorite_border</span>
+
+    </div>
+
+    </mat-card-content>
+
+  </mat-card>

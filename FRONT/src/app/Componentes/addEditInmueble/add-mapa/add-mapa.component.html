@@ -1,0 +1,11 @@
+
+<div class="search" id="pac-container">
+  <input #search id="buscadorMapa" type="text" placeholder="Inserta tu ubicación">
+</div>
+
+<div class="map-container" >
+  <agm-map class="map_container__MAPA" [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapReady)="mapReady($event)">
+    <agm-marker class="kk" [latitude]="coor.myLat" [longitude]="coor.myLng"></agm-marker>
+  </agm-map>
+</div>
+

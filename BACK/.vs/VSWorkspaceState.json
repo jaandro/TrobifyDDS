@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\main",
+    "\\src\\main\\java",
+    "\\src\\main\\java\\com",
+    "\\src\\main\\java\\com\\trobify",
+    "\\src\\main\\java\\com\\trobify\\trobify",
+    "\\src\\main\\java\\com\\trobify\\trobify\\logica",
+    "\\src\\main\\java\\com\\trobify\\trobify\\persistencia"
+  ],
+  "SelectedNode": "\\src\\main\\java\\com\\trobify\\trobify\\logica\\Atributo.java",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,222 @@
+.navbar{
+  background-color: white;
+  height: 5em;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+
+}
+
+.navbar__left{
+display: flex;
+  padding: 10px;
+}
+.navbar__left__searchBar{
+  margin-left: 5em;
+}
+.navbar__left__searchBar--element{
+  border-radius: 20px;
+}
+.navbar__left__labelTrobify{
+  background-color:chartreuse;
+  margin-right: 2em;
+}
+.img{
+  width: 200px;
+  height: 30px;
+}
+.navbar__right{
+  background-color:white;
+  display: flex;
+  justify-content:flex-end;
+}
+.navbar__right__homeButton{
+    color:rgb(112, 168, 216);
+    padding: 10px;
+    margin-right:1em;
+}
+.navbar__right__backButton{
+  color:rgb(112, 168, 216);
+  padding: 10px;
+  margin-left:1em;
+  margin-right: 2em;
+}
+
+
+
+.imageHub{
+
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imageHub__imageDisplay{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.imageHub__imageDisplay--sliderContainer{
+  height: 100%;
+  width:100%;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+.slider{
+  margin-left: 5em;
+  margin-right: 5em;
+  height: 100%;
+}
+
+.imageHub__imageGallery__image{}
+
+
+
+.mainInfo{
+  display: flex;
+  height: 250px;
+}
+.mainInfo__left{
+  width: 70%;
+}
+.mainInfo__left__labelPrecio{
+  height: 30%;
+  font-family: Arial;
+  font-size: 3em;
+  margin-left: 1.5em;
+}
+.mainInfo__left__infoDisplay{
+  height: 70%;
+  display:  flex;
+  align-items: center;
+
+}
+.mainInfo__left__infoDisplay__rooms{
+  background-color:rgb(112, 168, 216) ;
+  border-radius: 20px;
+  width: 8em;
+  height: 3em;
+  margin-right: 2em;
+  margin-left: 3em;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+
+}
+.mainInfo__left__infoDisplay__bathRooms{
+  background-color:rgb(112, 168, 216);
+  border-radius: 20px;
+  width: 8em;
+  height: 3em;
+  margin-right: 2em;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.mainInfo__left__infoDisplay__surface{
+  background-color: rgb(112, 168, 216);
+  border-radius: 20px;
+  width: 8em;
+  height: 3em;
+  margin-right: 2em;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.mainInfo__left__infoDisplay__floor{
+  background-color:rgb(112, 168, 216);
+  border-radius: 20px;
+  width: 7em;
+  height: 3em;
+  margin-right: 2em;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.mainInfo__right{
+  width:30%;
+  position:relative;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+.mainInfo__right__shareButton{
+  background-color:rgb(112, 168, 216);
+  color: aliceblue;
+  width: 20em;
+  height: 3.75em;
+  margin-right: 4em;
+
+
+}
+.mainInfo__right__favButton{
+  background-color:rgb(112, 168, 216);
+  color: aliceblue;
+  width: 20em;
+  height: 3.75em;
+  margin-right: 4em;;
+}
+.mainInfo__right__contactButton{
+  background-color:rgb(112, 168, 216);
+  color: aliceblue;
+  width: 20em;
+  height: 3.75em;
+  margin-right: 4em;
+}
+.mainInfo__right__counterOfferButton{
+  background-color:rgb(112, 168, 216);
+  color: aliceblue;
+  width: 20em;
+  height: 3.75em;
+  margin-right: 4em;
+}
+
+
+
+
+
+.descriptionCharacteristics{
+
+
+  width: 100%;
+
+
+}
+.descriptionCharacteristics__description{
+  width: 50%;
+
+  margin:3em;
+}
+.descriptionCharacteristics__characteristics{
+  margin: 3em;
+}
+.descriptionCharacteristics__characteristics__element{
+  background-color: rgb(112, 168, 216);
+  height: 20px;
+  width: 10em;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.map{
+  height: 500px;
+  width:100%;
+}
+
+.map_container__MAPA{
+  display: flex;
+  height: 500px;
+  width: 100%;
+}
+

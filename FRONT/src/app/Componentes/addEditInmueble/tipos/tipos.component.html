@@ -1,0 +1,68 @@
+
+<div class="e-float-input e-input-group">
+  <!-- <input class="e-input" type="text" placeholder="Enter Name" /> -->
+  <textarea style="width: 100%; height: 300px;" placeholder="Descripción..." ng-model="string" ng-name="text" (change)="writting($event)"></textarea>
+</div>
+
+<div style="padding-top: 10px;">
+  <label>Extras finca</label>
+  <br>
+  <mat-button-toggle-group #group1="matButtonToggleGroup" (change)="servicios1(group1.value)" name = "fontStyle"  aria-label = "Font Style" multiple>
+    <mat-button-toggle value = "Garaje privado" > Garaje privado </mat-button-toggle >
+    <mat-button-toggle value = "Trastero" > Trastero </mat-button-toggle >
+    <mat-button-toggle value = "Ascensor" > Ascensor </mat-button-toggle >
+    <mat-button-toggle value = "Parking comunitario" > Parking comunitario </mat-button-toggle >
+    <mat-button-toggle value = "Servicio portería" > Servicio portería </mat-button-toggle >
+    <mat-button-toggle value = "Videoportero" > Videoportero </mat-button-toggle >
+  </mat-button-toggle-group >
+</div>
+
+<div style="padding-top: 10px;">
+  <label>Extras basicos</label>
+  <br>
+  <mat-button-toggle-group #group21="matButtonToggleGroup" (change)="servicios21(group21.value)" name = "fontStyle"  aria-label = "Font Style" multiple>
+    <mat-button-toggle value = "Aire acondicionado" > Aire acondicionado </mat-button-toggle >
+    <mat-button-toggle value = "Armarios" > Armarios </mat-button-toggle >
+    <mat-button-toggle value = "undeCalefacciónrline" > Calefacción </mat-button-toggle >
+    <mat-button-toggle value = "Parquet" > Parquet </mat-button-toggle >
+    <mat-button-toggle value = "Cocina Office" > Cocina Office </mat-button-toggle >
+    <mat-button-toggle value = "Suite con baño" > Suite con baño </mat-button-toggle >
+  </mat-button-toggle-group >
+
+  <mat-button-toggle-group #group22="matButtonToggleGroup" (change)="servicios22(group22.value)" name = "fontStyle"  aria-label = "Font Style" multiple>
+    <mat-button-toggle value = "Amueblado" > Amueblado </mat-button-toggle >
+    <mat-button-toggle value = "Electrodomésticos" > Electrodomésticos </mat-button-toggle >
+    <mat-button-toggle value = "Horno" > Horno </mat-button-toggle >
+    <mat-button-toggle value = "Lavadora" > Lavadora </mat-button-toggle >
+    <mat-button-toggle value = "Microondas" > Microondas </mat-button-toggle >
+    <mat-button-toggle value = "Nevera" > Nevera </mat-button-toggle >
+  </mat-button-toggle-group >
+
+  <mat-button-toggle-group #group23="matButtonToggleGroup" (change)="servicios23(group23.value)" name = "fontStyle"  aria-label = "Font Style" multiple>
+    <mat-button-toggle value = "TV" > TV </mat-button-toggle >
+    <mat-button-toggle value = "Internet" > Internet </mat-button-toggle >
+    <mat-button-toggle value = "Puerta blindada" > Puerta blindada </mat-button-toggle >
+    <mat-button-toggle value = "Lavadero" > Lavadero </mat-button-toggle >
+    <mat-button-toggle value = "No amueblado" > No amueblado </mat-button-toggle >
+  </mat-button-toggle-group >
+</div>
+
+<div style="padding-top: 10px;">
+  <label>Otros extras</label>
+  <br>
+  <mat-button-toggle-group #group31="matButtonToggleGroup" (change)="servicios31(group31.value)" name = "fontStyle"  aria-label = "Font Style" multiple>
+    <mat-button-toggle value = "Jardin privado" > Jardin privado </mat-button-toggle >
+    <mat-button-toggle value = "Terraza" > Terraza </mat-button-toggle >
+    <mat-button-toggle value = "Zona comunitaria" > Zona comunitaria </mat-button-toggle >
+    <mat-button-toggle value = "Patio" > Patio </mat-button-toggle >
+    <mat-button-toggle value = "Piscina" > Piscina </mat-button-toggle >
+  </mat-button-toggle-group >
+
+  <mat-button-toggle-group #group32="matButtonToggleGroup" (change)="servicios32(group32.value)" name = "fontStyle"  aria-label = "Font Style" multiple>
+    <mat-button-toggle value = "Balcón" > Balcón </mat-button-toggle >
+    <mat-button-toggle value = "Zona deportiva" > Zona deportiva </mat-button-toggle >
+    <mat-button-toggle value = "Zona infantil" > Zona infantil </mat-button-toggle >
+    <mat-button-toggle value = "Piscina comunitaria" > Piscina comunitaria </mat-button-toggle >
+  </mat-button-toggle-group >
+</div>
+

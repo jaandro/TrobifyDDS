@@ -1,0 +1,14 @@
+<form novalidate enctype="multipart/form-data" class="form_container" method="POST">
+  <div class="custon-file">
+    <input type="file" id="imagen" #imagenInputFile
+    (change)="onFileChange($event)" style="max-width: 140px;">
+  </div>
+
+  <div *ngIf="imagen != undefined" class="form_container-img_container">
+    <ng-image-slider [images]="imagenMin"></ng-image-slider>
+  </div>
+
+  <div *ngIf="imagen == undefined">
+    <img style="max-width: 200px;" src="../../../../assets/imagenes/imagenVacía.jpg" for="imagen">
+  </div>
+</form>

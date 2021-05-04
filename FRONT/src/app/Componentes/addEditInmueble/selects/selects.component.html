@@ -1,0 +1,65 @@
+<div class="inmueble_container">
+  <label>Tipo de inmueble</label>
+  <ng-multiselect-dropdown
+    [placeholder]="''"
+    [settings]="selectSettings"
+    [data]="viviendasList"
+    (onSelect)="onViviendasSelect($event)"
+    (onDeSelect)="onViviendasDeSelect($event)">
+  </ng-multiselect-dropdown>
+</div>
+
+<div class="contrato_container">
+  <label>Tipo de contrato</label>
+  <ng-multiselect-dropdown
+    [placeholder]="''"
+    [settings]="selectSettings"
+    [data]="contratosList"
+    (onSelect)="onContratosSelect($event)"
+    (onDeSelect)="onContratosDeSelect($event)">
+  </ng-multiselect-dropdown>
+</div>
+
+<mat-grid-list cols="2" rowHeight="5:1">
+
+  <mat-grid-tile>
+    <div class="precio_container">
+      <mat-form-field appearance="fill">
+        <mat-label>Precio</mat-label>
+        <input value="" matInput type="number" (change)="precio($event)">
+        <span matSuffix>€</span>
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="habitaciones_container">
+      <mat-form-field appearance="fill">
+        <mat-label>Habitaciones</mat-label>
+        <input value="" matInput type="number" (change)="habitaciones($event)">
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="superficie_container">
+      <mat-form-field appearance="fill">
+        <mat-label>Superficie</mat-label>
+        <input value="" matInput type="number" (change)="superficie($event)">
+        <span matSuffix>m²</span>
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <div class="banos_container">
+      <mat-form-field appearance="fill">
+        <mat-label>Baños</mat-label>
+        <input value="" matInput type="number" (change)="banos($event)">
+      </mat-form-field>
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

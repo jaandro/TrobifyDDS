@@ -1,0 +1,88 @@
+
+<head>
+  <style href="pagina-visualizar-inmueble.component.css"></style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar__left">
+      <div class="navbar__left__labelTrobify">
+        <img class="img" src="../../assets/imagenes/trobify.png" alt="trobify Logo" >
+      </div>
+      <div class="navbar__left__searchBar">
+
+      </div>
+    </div>
+    <div class="navbar__right">
+      <button class="navbar__right__homeButton"  mat-button (click)="irPublicarInmueble()">Publicar Inmueble</button>
+      <button class="navbar__right__backButton"  mat-button (click)="irPaginaPrincipal()">Página Principal</button>
+    </div>
+  </div>
+  <hr>
+
+  <div class="imageHub">
+    <div class="imageHub__imageDisplay">
+      <div *ngIf="inmu != undefined" class="imageHub__imageDisplay--sliderContainer">
+        <ng-image-slider [images]="imagenMin" #carrousel class="slider" showArrow="true"></ng-image-slider>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <div class="mainInfo">
+    <div class="mainInfo__left">
+      <label class="mainInfo__left__labelPrecio">{{inmu.precio}} €</label>
+      <div class="mainInfo__left__infoDisplay">
+        <div class="mainInfo__left__infoDisplay__rooms">
+          <label for="">{{inmu.numHabitaciones}} habitaciones</label>
+        </div>
+        <div class="mainInfo__left__infoDisplay__bathRooms">
+          <label for="">{{inmu.numBanos}} baños</label>
+        </div>
+        <div class="mainInfo__left__infoDisplay__surface">
+          <label for="">{{inmu.superficie}}m²</label>
+        </div>
+        <div class="mainInfo__left__infoDisplay__floor">
+          <label for="">Planta {{inmu.planta}}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="mainInfo__right">
+      <button mat-raised-button class="mainInfo__right__shareButton">Compartir</button>
+      <button mat-raised-button class="mainInfo__right__favButton">Favoritos</button>
+      <button mat-raised-button class="mainInfo__right__contactButton">Contactar</button>
+      <button mat-raised-button class="mainInfo__right__counterOfferButton">Contra Oferta</button>
+    </div>
+
+  </div>
+  <hr>
+  <div class="descriptionCharacteristics">
+    <div class="descriptionCharacteristics__description">
+      <h1>Descripcion</h1>
+      <p>{{inmu.descripcion}}</p>
+    </div>
+    <hr>
+    <div class="descriptionCharacteristics__characteristics">
+      <h1>Tipo de vivienda</h1>
+      <div class="descriptionCharacteristics__characteristics__element" *ngFor="let tipo of inmu.tipoViviendas">
+        {{tipo.tipo}}
+      </div>
+    </div>
+    <hr>
+    <div class="descriptionCharacteristics__characteristics">
+      <h1>Características</h1>
+      <div class="descriptionCharacteristics__characteristics__element" *ngFor="let servicio of inmu.servicios">
+        {{servicio.servicio}}
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <hr>
+
+  <div class="map">
+    <agm-map class="map_container__MAPA" [latitude]="latlng.lat" [longitude]="latlng.lng" [zoom]="17" >
+      <agm-marker class="kk" [latitude]="latlng.lat" [longitude]="latlng.lng"></agm-marker>
+      </agm-map>
+  </div>
+</body>

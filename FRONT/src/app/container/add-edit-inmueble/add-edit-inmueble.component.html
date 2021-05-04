@@ -1,0 +1,17 @@
+
+<div style="display: flex;">
+
+  <div class="leftside_container">
+    <app-img (imagenOutput)="cogerImg($event)"></app-img>
+    <app-selects (tipoOutput)="cogerTipo($event)" (contratoOutput)="cogerContrato($event)" (precioOutput)="cogerPrecio($event)" (habitacionesOutput)="cogerHabitaciones($event)"
+    (superficieOutput)="cogerSuperficie($event)" (banosOutput)="cogerBanos($event)"></app-selects>
+    <app-add-mapa (coordenadasOutput)="cogerCoordenadas($event)"></app-add-mapa>
+  </div>
+
+  <div class="righttside_container">
+    <app-tipos></app-tipos>
+    <button style="margin-top: 40px; width: 100%;" mat-raised-button color="primary" (click)="publicar()">Publicar</button>
+  </div>
+
+
+</div>

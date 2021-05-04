@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TrobifyApplication<trobify>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.trobify.trobify.TrobifyApplication",
+            "projectName": "trobify",
+            "args": ""
+        }
+    ]
+}

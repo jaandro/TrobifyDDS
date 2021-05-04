@@ -1,0 +1,16 @@
+.map-container {
+  margin-top: 10px;
+  height: 370px;
+  width: 100%;
+}
+
+agm-map {
+  height: 100%;
+  width: 100%;
+}
+
+#buscadorMapa {
+  border-radius: 10px;
+  width: 50%;
+  text-align: center;
+}

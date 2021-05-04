@@ -1,0 +1,85 @@
+
+<body>
+  <div class="barra-navegacion">
+    <div class="barra-navegacion__logoYsearch">
+      <div class="barra-navegacion__logoYsearch__logoTrobify">
+        <img class="img" src="../../../../assets/imagenes/trobify.png" alt="trobify Logo" >
+      </div>
+    </div>
+    <div class="barra-navegacion__botones">
+        <div class="barra-navegacion__botones-home">
+          <button class="barra-navegacion__botones-home-estilo"mat-button (click)="irPaginaVisualizarInmueble()">Pagina Principal</button>
+        </div>
+        <div class="barra-navegacion__botones-publicarInmueble">
+          <button (click)="publicarInmueble()" class="barra-navegacion__botones-publicarInmueble-estilo"mat-button >Publicar Inmbueble</button>
+        </div>
+    </div>
+  </div>
+  <div class="barra-filtros">
+    <div class="barra-filtros__precioMinimo">
+      <mat-form-field appearance="fill">
+        <mat-label>Precio Mínimo</mat-label>
+        <input (change)="aplicarFiltroPrecioMinimo($event)"  value="" matInput type="number" class="example-right-align">
+        <mat-error *ngIf="this.errorPrecioMinimo==false">Introduce un Precio Minimo menor al precio Maximo</mat-error>
+        <span matPrefix>€&nbsp;</span>
+        <span matSuffix></span>
+      </mat-form-field>
+    </div>
+    <div class="barra-filtros__precioMaximo">
+      <mat-form-field  appearance="fill">
+        <mat-label>Precio Máximo</mat-label>
+        <input (change)="aplicarFiltroPrecioMaximo($event)" matInput type="number" class="example-right-align">
+        <mat-error *ngIf="this.errorPrecioMaximo==false">Introduce un Precio Máximo mayor al precio Mínimo</mat-error>
+        <span matPrefix>€&nbsp;</span>
+        <span matSuffix></span>
+      </mat-form-field>
+    </div>
+    <div class="barra-filtros__superficieMinima">
+      <mat-form-field appearance="fill">
+        <mat-label>Superficie Mínima</mat-label>
+        <!-- this.errorSuperficieMinima==false -->
+        <input (change)="aplicarFiltroPrecioMinimo($event)"  matInput type="number" class="example-right-align">
+        <mat-error class="errores" *ngIf="busqueda.precioDesde > busqueda.superficieHasta">Introduce una superficie minima menor a la superficie Máxima</mat-error>
+        <span matSuffix>m²</span>
+      </mat-form-field>
+    </div>
+    <div class="barra-filtros__superficieMaxima">
+      <mat-form-field appearance="fill">
+        <mat-label>Superficie Máxima</mat-label>
+        <input (change)="aplicarFiltroSuperficieMaxima($event)" matInput type="number" class="example-right-align" >
+        <mat-error *ngIf="this.errorSuperficieMaxima==false">Introduce una superficie minima menor a la superficie Máxima</mat-error>
+        <span matSuffix>m²</span>
+      </mat-form-field>
+    </div>
+    <div class="barra-filtros__numeroBaños">
+      <mat-form-field appearance="fill">
+        <mat-label>Número de Baños</mat-label>
+        <mat-select (selectionChange)="aplicarFiltroBanos($event)"  id="selectBaños" name="Baños">
+          <mat-option value="1">1+</mat-option>
+          <mat-option value="2">2+</mat-option>
+          <mat-option value="3">3+</mat-option>
+          <mat-option value="4">4+</mat-option>
+          <mat-option value="5">5+</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="barra-filtros__numeroHabitaciones">
+      <mat-form-field appearance="fill">
+        <mat-label>Número de Habitaciones</mat-label>
+        <mat-select id="selectHabitaciones" (selectionChange)="aplicarFiltroHabitaciones($event)" name="food">
+          <mat-option value=1>1+</mat-option>
+          <mat-option value=2>2+</mat-option>
+          <mat-option value=3>3+</mat-option>
+          <mat-option value=4>4+</mat-option>
+          <mat-option value=5>5+</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="barra-alquilarYcomprar">
+    <button mat-button class="barra-alquilarYcomprar__botonComprar" onclick="aplicarFiltroComprar()" >Comprar</button>
+    <button mat-button class="barra-alquilarYcomprar__botonAlquilar" onclick="aplicarFiltroAlquilar()">Alquilar</button>
+  </div>
+  <hr class="separacion">
+
+</body>
