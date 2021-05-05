@@ -1,5 +1,5 @@
 package com.trobify.trobify.repositorios;
-import com.trobify.trobify.clases.Inmueble;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

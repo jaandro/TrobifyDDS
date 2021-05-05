@@ -3,9 +3,9 @@ package com.trobify.trobify.servicios;
 import java.util.List;
 
 import com.trobify.trobify.clases.Foto;
-import com.trobify.trobify.clases.Inmueble;
 import com.trobify.trobify.clases.Servicios;
 import com.trobify.trobify.clases.TipoVivienda;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.repositorios.crudInmuebleRepository;
 import com.trobify.trobify.repositorios.fotosRepository;
 import com.trobify.trobify.repositorios.serviciosInmuebleRepository;

@@ -3,7 +3,7 @@ package com.trobify.trobify.servicios;
 import java.util.List;
 
 import com.trobify.trobify.clases.Foto;
-import com.trobify.trobify.clases.Inmueble;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.repositorios.fotosRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

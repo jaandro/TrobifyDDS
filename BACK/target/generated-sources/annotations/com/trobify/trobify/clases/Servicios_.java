@@ -1,5 +1,6 @@
 package com.trobify.trobify.clases;
 
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;

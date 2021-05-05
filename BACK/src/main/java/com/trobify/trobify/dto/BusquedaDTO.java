@@ -14,7 +14,7 @@ public class BusquedaDTO {
     private Integer numeroBanosMaximos;
     private Integer numeroHabitacionesMinimas;
     private Integer numeroHabitacionesMaximas;
-    private String [] servicios; 
+    private String [] servicios;
     // private Boolean alquilar;
     // private Boolean comprar;
 

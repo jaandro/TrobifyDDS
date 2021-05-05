@@ -1,6 +1,6 @@
 package com.trobify.trobify.controladores;
 
-import com.trobify.trobify.clases.Inmueble;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.servicios.crudInmuebleService;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,7 @@ package com.trobify.trobify.controladores;
 
 import java.util.List;
 
-import com.trobify.trobify.clases.Inmueble;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
 import com.trobify.trobify.dto.BusquedaDTO;
 import com.trobify.trobify.servicios.InmuebleService;

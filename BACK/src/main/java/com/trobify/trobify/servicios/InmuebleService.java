@@ -7,8 +7,8 @@ import java.util.function.Function;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 
-import com.trobify.trobify.clases.Inmueble;
-import com.trobify.trobify.clases.Inmueble_;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble_;
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
 import com.trobify.trobify.interfaces.InmuebleInterface;
 import com.trobify.trobify.repositorios.InmuebleRepository;
@@ -38,9 +38,9 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
                 specification = specification.and(buildStringSpecification(criteria.getCiudad(), Inmueble_.ciudad));
             }
 
-            if(criteria.getPrecio() != null){
-                specification = specification.and(buildRangeSpecification(criteria.getPrecio(), Inmueble_.precio));
-            }
+            // if(criteria.getPrecio() != null){
+            //     specification = specification.and(buildRangeSpecification(criteria.getPrecio(), Inmueble_.precio));
+            // }
 
             if(criteria.getSuperficie() != null){
                 specification = specification.and(buildRangeSpecification(criteria.getSuperficie(), Inmueble_.superficie));

@@ -6,6 +6,8 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
+import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
+
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(Inmueble.class)
 public abstract class Inmueble_ {
