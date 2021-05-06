@@ -31,32 +31,49 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
         return inmuebles;
     }
 
-    private Specification<Inmueble> createSpecification(InmuebleCriteria criteria) {// como si hicieramos una query
+    private Specification<Inmueble> createSpecification(InmuebleCriteria criteria) {
         Specification<Inmueble> specification = Specification.where(null);
         if(criteria != null){
-            if(criteria.getCiudad() != null){
-                specification = specification.and(buildStringSpecification(criteria.getCiudad(), Inmueble_.ciudad));
-            }
+            specification = specificationCiudad(criteria, specification);
+            specification = specificationSuperficie(criteria, specification);
+            specification = specificationBanos(criteria, specification);
+            specification = specificationHabitaciones(criteria, specification);
+            specification = specificationServicios(criteria, specification);
+        }
+        return specification;
+    }
 
-            // if(criteria.getPrecio() != null){
-            //     specification = specification.and(buildRangeSpecification(criteria.getPrecio(), Inmueble_.precio));
-            // }
+    private Specification<Inmueble> specificationServicios(InmuebleCriteria criteria, Specification<Inmueble> specification) {
+        if(criteria.getServicios() != null){
+            specification = specification.and(buildSpecification(criteria.getServicios(), (Function<Root<Inmueble>, Expression<String>>) Inmueble_.servicios));
+        }
+        return specification;
+    }
 
-            if(criteria.getSuperficie() != null){
-                specification = specification.and(buildRangeSpecification(criteria.getSuperficie(), Inmueble_.superficie));
-            }
+    private Specification<Inmueble> specificationHabitaciones(InmuebleCriteria criteria, Specification<Inmueble> specification) {
+        if(criteria.getNumHabitaciones() != null){
+            specification = specification.and(buildRangeSpecification(criteria.getNumHabitaciones(), Inmueble_.numHabitaciones));
+        }
+        return specification;
+    }
 
-            if(criteria.getNumBanos() != null){
-                specification = specification.and(buildRangeSpecification(criteria.getNumBanos(), Inmueble_.numBanos));
-            }
+    private Specification<Inmueble> specificationBanos(InmuebleCriteria criteria, Specification<Inmueble> specification) {
+        if(criteria.getNumBanos() != null){
+            specification = specification.and(buildRangeSpecification(criteria.getNumBanos(), Inmueble_.numBanos));
+        }
+        return specification;
+    }
 
-            if(criteria.getNumHabitaciones() != null){
-                specification = specification.and(buildRangeSpecification(criteria.getNumHabitaciones(), Inmueble_.numHabitaciones));
-            }
+    private Specification<Inmueble> specificationSuperficie(InmuebleCriteria criteria, Specification<Inmueble> specification) {
+        if(criteria.getSuperficie() != null){
+            specification = specification.and(buildRangeSpecification(criteria.getSuperficie(), Inmueble_.superficie));
+        }
+        return specification;
+    }
 
-            if(criteria.getServicios() != null){
-                specification = specification.and(buildSpecification(criteria.getServicios(), (Function<Root<Inmueble>, Expression<String>>) Inmueble_.servicios));
-            }
+    private Specification<Inmueble> specificationCiudad(InmuebleCriteria criteria, Specification<Inmueble> specification) {
+        if(criteria.getCiudad() != null){
+            specification = specification.and(buildStringSpecification(criteria.getCiudad(), Inmueble_.ciudad));
         }
         return specification;
     }
