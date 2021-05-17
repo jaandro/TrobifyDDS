@@ -3,7 +3,6 @@ package com.trobify.trobify.clases.InmuebleFabrica;
 import com.trobify.trobify.clases.Foto;
 import com.trobify.trobify.clases.Servicios;
 import com.trobify.trobify.clases.TipoVivienda;
-import java.util.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
@@ -23,13 +22,13 @@ public abstract class Inmueble_ {
 	public static volatile SingularAttribute<Inmueble, String> pais;
 	public static volatile ListAttribute<Inmueble, Servicios> servicios;
 	public static volatile SingularAttribute<Inmueble, String> longitud;
+	public static volatile SingularAttribute<Inmueble, Double> precio;
 	public static volatile SingularAttribute<Inmueble, Integer> superficie;
 	public static volatile SingularAttribute<Inmueble, String> ciudad;
 	public static volatile ListAttribute<Inmueble, TipoVivienda> tipoViviendas;
 	public static volatile SingularAttribute<Inmueble, Integer> id;
 	public static volatile SingularAttribute<Inmueble, Boolean> amueblado;
 	public static volatile ListAttribute<Inmueble, Foto> fotos;
-	public static volatile SingularAttribute<Inmueble, Date> fechaConstruccion;
 
 	public static final String DESCRIPCION = "descripcion";
 	public static final String LATITUD = "latitud";
@@ -41,13 +40,13 @@ public abstract class Inmueble_ {
 	public static final String PAIS = "pais";
 	public static final String SERVICIOS = "servicios";
 	public static final String LONGITUD = "longitud";
+	public static final String PRECIO = "precio";
 	public static final String SUPERFICIE = "superficie";
 	public static final String CIUDAD = "ciudad";
 	public static final String TIPO_VIVIENDAS = "tipoViviendas";
 	public static final String ID = "id";
 	public static final String AMUEBLADO = "amueblado";
 	public static final String FOTOS = "fotos";
-	public static final String FECHA_CONSTRUCCION = "fechaConstruccion";
 
 }
 

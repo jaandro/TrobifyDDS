@@ -5,6 +5,7 @@ import java.util.List;
 import com.trobify.trobify.clases.Foto;
 import com.trobify.trobify.clases.Servicios;
 import com.trobify.trobify.clases.TipoVivienda;
+import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
 import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.dto.InmuebleDTO;
 import com.trobify.trobify.servicios.crudInmuebleService;
@@ -37,7 +38,7 @@ public class addEditController {
     private tipoViviendaService tipoViviendaservice;
 
     @PostMapping
-    public void recibeInmueble(@RequestBody InmuebleDTO inmuebleDTO){
-        
+    public void recibeInmueble(@RequestBody Inmueble inmueble){
+        crudService.saveInmueble(inmueble);
     }
 }

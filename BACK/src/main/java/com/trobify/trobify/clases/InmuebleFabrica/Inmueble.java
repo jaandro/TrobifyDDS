@@ -46,6 +46,8 @@ public abstract class Inmueble {
     @Column
     protected String pais;
     @Column
+    protected double precio;
+    @Column
     protected int numBanos;
     @Column
     protected int numHabitaciones;
@@ -57,8 +59,6 @@ public abstract class Inmueble {
     protected boolean amueblado;
     @Column
     protected int planta;
-    @Column(nullable = true)
-    protected Date fechaConstruccion;
 
     @OneToMany(mappedBy = "inmueble", cascade = CascadeType.ALL)
     public List<Foto> fotos;
@@ -82,20 +82,22 @@ public abstract class Inmueble {
     private List<TipoVivienda> tipoViviendas;
    
 
-    public Inmueble(InmuebleDTO inmuebleDTO) {
-        this.superficie = inmuebleDTO.superficie;
-        this.descripcion = inmuebleDTO.descripcion;
-        this.latitud = inmuebleDTO.latitud;
-        this.longitud = inmuebleDTO.longitud;
-        this.ciudad = inmuebleDTO.ciudad;
-        this.pais = inmuebleDTO.pais;
-        this.numBanos = inmuebleDTO.numBanos;
-        this.numHabitaciones = inmuebleDTO.numHabitaciones;
-        this.estado = inmuebleDTO.estado;
-        this.ascensor = inmuebleDTO.ascensor;
-        this.amueblado = inmuebleDTO.amueblado;
-        this.fechaConstruccion = inmuebleDTO.fechaConstruccion;
-    }
+    // public Inmueble(InmuebleDTO inmuebleDTO) {
+    //     this.superficie = inmuebleDTO.superficie;
+    //     this.descripcion = inmuebleDTO.descripcion;
+    //     this.latitud = inmuebleDTO.latitud;
+    //     this.longitud = inmuebleDTO.longitud;
+    //     this.ciudad = inmuebleDTO.ciudad;
+    //     this.pais = inmuebleDTO.pais;
+    //     this.numBanos = inmuebleDTO.numBanos;
+    //     this.numHabitaciones = inmuebleDTO.numHabitaciones;
+    //     this.estado = inmuebleDTO.estado;
+    //     this.ascensor = inmuebleDTO.ascensor;
+    //     this.amueblado = inmuebleDTO.amueblado;
+    //     this.fechaConstruccion = inmuebleDTO.fechaConstruccion;
+    // }
+
+    // public abstract void hola();
 
     public void addServicio(Servicios servicio){
         if(this.servicios == null){
@@ -119,6 +121,14 @@ public abstract class Inmueble {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     public int getSuperficie() {
@@ -217,14 +227,6 @@ public abstract class Inmueble {
         this.planta = planta;
     }
 
-    public Date getFechaConstruccion() {
-        return fechaConstruccion;
-    }
-
-    public void setFechaConstruccion(Date fechaConstruccion) {
-        this.fechaConstruccion = fechaConstruccion;
-    }
-
     public List<Foto> getFotos() {
         return fotos;
     }
@@ -251,12 +253,12 @@ public abstract class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble [amueblado=" + amueblado + ", ascensor=" + ascensor + ", ciudad=" + ciudad
-                + ", descripcion=" + descripcion + ", estado=" + estado
-                + ", fechaConstruccion=" + fechaConstruccion + ", fotos=" + fotos + ", id=" + id + ", latitud="
-                + latitud + ", longitud=" + longitud + ", numBanos=" + numBanos + ", numHabitaciones=" + numHabitaciones
-                + ", pais=" + pais + ", planta=" + planta +  ", servicios=" + servicios
-                + ", superficie=" + superficie + ", tipoViviendas=" + tipoViviendas + "]";
+        return "Inmueble [amueblado=" + amueblado + ", ascensor=" + ascensor + ", ciudad=" + ciudad + ", descripcion="
+                + descripcion + ", estado=" + estado  + ", fotos=" + fotos
+                + ", id=" + id + ", latitud=" + latitud + ", longitud=" + longitud + ", numBanos=" + numBanos
+                + ", numHabitaciones=" + numHabitaciones + ", pais=" + pais + ", planta=" + planta + ", precio="
+                + precio + ", servicios=" + servicios + ", superficie=" + superficie + ", tipoViviendas="
+                + tipoViviendas + "]";
     }
    
 }

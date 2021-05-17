@@ -1,6 +1,8 @@
 package com.trobify.trobify.clases.InmuebleFabrica;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import com.trobify.trobify.dto.InmuebleDTO;
 
@@ -12,7 +14,7 @@ public class InmuebleCompartido extends Inmueble {
     public double precioHabitacion;
 
     public InmuebleCompartido(InmuebleDTO inmuebleDTO) {
-        super(inmuebleDTO);
+        // super(inmuebleDTO);
         this.numCompaneros = inmuebleDTO.numCompaneros;
         this.precioHabitacion = inmuebleDTO.precioHabitacion;
     }
@@ -32,6 +34,12 @@ public class InmuebleCompartido extends Inmueble {
     public void setPrecioHabitacion(double precioHabitacion) {
         this.precioHabitacion = precioHabitacion;
     }
+
+    // @Override
+    // public void hola() {
+    //     System.out.println("Compartido");
+        
+    // }
 
     
 }

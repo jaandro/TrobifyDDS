@@ -1,10 +1,19 @@
 package com.trobify.trobify.controladores;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.trobify.trobify.clases.ImagenesBDA;
+import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
 import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
+import com.trobify.trobify.criteria.precioCriteria;
+import com.trobify.trobify.criteria.criteriaOperators.AndCriteria;
+import com.trobify.trobify.criteria.criteriaOperators.ICriteria;
 import com.trobify.trobify.dto.BusquedaDTO;
+import com.trobify.trobify.repositorios.ImagenAppRepository;
+import com.trobify.trobify.repositorios.InmuebleRepository;
+import com.trobify.trobify.servicios.ImagenesBDAService;
 import com.trobify.trobify.servicios.InmuebleService;
 
 import org.apache.commons.lang3.StringUtils;
@@ -27,13 +36,20 @@ public class InmuebleController {
 
     @Autowired
     private InmuebleService service;
+    @Autowired
+    private InmuebleRepository inmuebleRep;
+    @Autowired
+    private ImagenAppRepository imgRep;
 
     @PostMapping
-    public ResponseEntity<List<Inmueble>> list(@RequestBody BusquedaDTO busquedaDTO) {    //requetBody BusquedaDTO recibes del front la busqueda 
-        InmuebleCriteria inmuebleCriteria = createCriteria(busquedaDTO);
-        List<Inmueble> list = service.getInmueblesFiltrados(inmuebleCriteria);
+    public ResponseEntity<Boolean> list(@RequestBody BusquedaDTO busquedaDTO) {    //requetBody BusquedaDTO recibes del front la busqueda         
+        // InmuebleCriteria inmuebleCriteria = createCriteria(busquedaDTO);
+        // List<Inmueble> list = service.getInmueblesFiltrados(busquedaDTO);
         System.out.println("AÑLSKDJFLKASÑDJFLKSADJFLKASDJFLKSADJFLÑKSAJFDLSAÑKDFJDSALÑKFJSA");
-        return new ResponseEntity<List<Inmueble>>(list, HttpStatus.OK); //se devuelve la lista de inmuebles al front
+        ImagenesBDA img = ImagenesBDA.getInstancia();
+        // ImagenesBDA img = ImagenesBDA.getLogo();
+        System.out.println(img.toString());
+        return new ResponseEntity<Boolean>(true, HttpStatus.OK); //se devuelve la lista de inmuebles al front
     }
 
     private InmuebleCriteria createCriteria(BusquedaDTO dto) {

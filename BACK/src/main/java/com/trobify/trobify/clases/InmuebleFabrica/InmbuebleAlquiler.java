@@ -1,6 +1,7 @@
 package com.trobify.trobify.clases.InmuebleFabrica;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 
 import com.trobify.trobify.dto.InmuebleDTO;
 
@@ -10,7 +11,7 @@ public class InmbuebleAlquiler extends Inmueble {
     public double precioMes;
 
     public InmbuebleAlquiler(InmuebleDTO inmuebleDTO) {
-        super(inmuebleDTO);
+        // super(inmuebleDTO);
         this.precioMes = inmuebleDTO.precioMes;
     }
 
@@ -21,6 +22,12 @@ public class InmbuebleAlquiler extends Inmueble {
     public void setPrecioMes(double precioMes) {
         this.precioMes = precioMes;
     }
+
+    // @Override
+    // public void hola() {
+    //     System.out.println("Alquiler");
+        
+    // }
     
     
 }
