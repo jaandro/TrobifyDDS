@@ -29,10 +29,6 @@ public class InmuebleDTO {
     
     public double consumoEnergia;
     public int precio;
-
-    public List<FotoDTO> fotos;
-    private List<ServiciosDTO> servicios;
-    private List<TipoViviendaDTO> tipoViviendas;
     
     public int getId() {
         return id;
@@ -129,24 +125,6 @@ public class InmuebleDTO {
     }
     public void setFechaConstruccion(Date fechaConstruccion) {
         this.fechaConstruccion = fechaConstruccion;
-    }
-    public List<FotoDTO> getFotos() {
-        return fotos;
-    }
-    public void setFotos(List<FotoDTO> fotos) {
-        this.fotos = fotos;
-    }
-    public List<ServiciosDTO> getServicios() {
-        return servicios;
-    }
-    public void setServicios(List<ServiciosDTO> servicios) {
-        this.servicios = servicios;
-    }
-    public List<TipoViviendaDTO> getTipoViviendas() {
-        return tipoViviendas;
-    }
-    public void setTipoViviendas(List<TipoViviendaDTO> tipoViviendas) {
-        this.tipoViviendas = tipoViviendas;
     }
 
     

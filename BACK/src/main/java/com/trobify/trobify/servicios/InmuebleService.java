@@ -9,17 +9,21 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 
 import com.trobify.trobify.clases.InmuebleFabrica.Inmueble_;
+import com.trobify.trobify.adapter.Adapter;
+import com.trobify.trobify.adapter.userAdapter;
+import com.trobify.trobify.clases.Usuario;
 import com.trobify.trobify.clases.InmuebleFabrica.Creador;
 import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
 import com.trobify.trobify.clases.InmuebleFabrica.InmbuebleAlquiler;
 import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.clases.InmuebleFabrica.InmuebleCompra;
 import com.trobify.trobify.criteria.InmuebleCriteria;
-import com.trobify.trobify.criteria.precioCriteria;
+import com.trobify.trobify.criteria.superficieCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.AndCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.ICriteria;
 import com.trobify.trobify.dto.BusquedaDTO;
 import com.trobify.trobify.dto.InmuebleDTO;
+import com.trobify.trobify.dto.UserDTO;
 import com.trobify.trobify.interfaces.InmuebleInterface;
 import com.trobify.trobify.repositorios.InmuebleRepository;
 
@@ -35,20 +39,14 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
     @Autowired
     private InmuebleRepository inmuebleRep;
 
-    public List<Inmueble> getInmueblesFiltrados(/*InmuebleCriteria inmuebleCriteria*/ BusquedaDTO busquedaDTO){
-        //final Specification<Inmueble> specification = createSpecification(inmuebleCriteria); 
-        // List<Inmueble> inmuebles = inmuebleRep.findAll(specification);
-        
-        //cogemos todos los inmuebles de la bda
-        List<Inmueble> inmuebles = inmuebleRep.findAll();
-        // System.out.println(inmuebles.toString());
+    public List<Inmueble> getInmueblesFiltrados(List<ICriteria> criterias){
 
-        //creamos neestras instancias de criteria
-        ICriteria precioCriteria = new precioCriteria();
+        // //creamos neestras instancias de criteria
+        // ICriteria precioCriteria = new superficieCriteria();
 
-        //añadimos las instancias de criteria en una list
-        List<ICriteria> criterias = new ArrayList<ICriteria>();
-        criterias.add(precioCriteria);
+        // //añadimos las instancias de criteria en una list
+        // List<ICriteria> criteriass = new ArrayList<ICriteria>();
+        // criterias.add(precioCriteria);
 
         //se crea un operación and con la lista de criterios a filtrar
         ICriteria filtros = new AndCriteria(criterias);
@@ -59,21 +57,21 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
         //recuperamos la lista de inmuebles filtrada segun los parametros de busqueda
         Specification<Inmueble> filtrados = filtros.meetCriteria(specification, criteria);
         List<Inmueble> inmueblesFiltrados = inmuebleRep.findAll(filtrados);
+        System.out.println(inmueblesFiltrados);
 
+        System.out.println("--------------------------------------ADAPTER--------------------------------------");
+        List<userAdapter> users = new ArrayList<>();
+
+        Usuario userBDA = new Usuario();
+        users.add(userBDA);
         
-        InmuebleDTO dto = new InmuebleDTO();
-		Inmueble inmV = CreadorInmueble.crearInmueble("venta", dto);
-		InmbuebleAlquiler inmA = new InmbuebleAlquiler(dto);
-		Inmueble inmC = CreadorInmueble.crearInmueble("compartido", dto);
+        UserDTO userDTO = new UserDTO();
+        users.add(new Adapter(userDTO));
 
-		// inmV.hola();
-		// inmA.hola();
-		// inmC.hola();
+        System.out.println(users.get(0).toString());
+        System.out.println(users.get(1).toString());
 
-        // double pm = inmV.g
-
-        // System.out.println(filtrados.toString());
-        return inmuebles;
+        return inmueblesFiltrados;
     }
 
     private Specification<Inmueble> createSpecification(InmuebleCriteria criteria) { // como si hicieramos una query

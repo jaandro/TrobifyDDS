@@ -19,7 +19,6 @@ public class AndCriteria implements ICriteria {
     public Specification<Inmueble> meetCriteria(Specification<Inmueble> specifications, InmuebleCriteria criteria) {
         for(ICriteria nameClass : criterias){
             specifications = nameClass.meetCriteria(specifications, criteria);
-            System.out.println(specifications);
         }
         return specifications;
     }

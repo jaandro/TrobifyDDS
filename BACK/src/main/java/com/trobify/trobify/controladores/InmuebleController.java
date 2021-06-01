@@ -7,7 +7,7 @@ import com.trobify.trobify.clases.ImagenesBDA;
 import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
 import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
-import com.trobify.trobify.criteria.precioCriteria;
+import com.trobify.trobify.criteria.superficieCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.AndCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.ICriteria;
 import com.trobify.trobify.dto.BusquedaDTO;
@@ -20,13 +20,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/home")
 @CrossOrigin(origins = "http://localhost:4200")
 public class InmuebleController {
 
@@ -37,25 +37,31 @@ public class InmuebleController {
     @Autowired
     private ImagenAppRepository imgRep;
 
-    @PostMapping
-    public ResponseEntity<Boolean> list(@RequestBody BusquedaDTO busquedaDTO) {    //requetBody BusquedaDTO recibes del front la busqueda         
-        // InmuebleCriteria inmuebleCriteria = createCriteria(busquedaDTO);
-        // List<Inmueble> list = service.getInmueblesFiltrados(busquedaDTO);
-        System.out.println("AÑLSKDJFLKASÑDJFLKSADJFLKASDJFLKSADJFLÑKSAJFDLSAÑKDFJDSALÑKFJSA");
+    @PostMapping ("/home")
+    public ResponseEntity<List<Inmueble>> list(@RequestBody BusquedaDTO busquedaDTO) {
+        List<ICriteria> criteria = createCriteria(busquedaDTO);
+        List<Inmueble> inmuebles = service.getInmueblesFiltrados(criteria);
         ImagenesBDA img = ImagenesBDA.getInstancia();
-        // ImagenesBDA img = ImagenesBDA.getLogo();
         System.out.println(img.toString());
-        return new ResponseEntity<Boolean>(true, HttpStatus.OK); //se devuelve la lista de inmuebles al front
+        return new ResponseEntity<List<Inmueble>>(inmuebles, HttpStatus.OK);
     }
 
-    private InmuebleCriteria createCriteria(BusquedaDTO dto) {
-        InmuebleCriteria inmuebleCriteria = new InmuebleCriteria();
+    @GetMapping ("/img")
+    public ResponseEntity<ImagenesBDA> imgEntity(@RequestBody BusquedaDTO busquedaDTO) {
+        ImagenesBDA img = ImagenesBDA.getInstancia();
+        System.out.println(img.toString());
+        return new ResponseEntity<ImagenesBDA>(img, HttpStatus.OK); //se devuelve la lista de inmuebles al front
+    }
+
+    private List<ICriteria> createCriteria(BusquedaDTO dto) {
+        List<ICriteria> inmuebleCriteria = new ArrayList<ICriteria>();
+        InmuebleCriteria rep = new InmuebleCriteria();
         if(dto != null) {
-            inmuebleCriteria.filtroCiudad(dto);
-            inmuebleCriteria.filtroPrecio(dto, this);
-            inmuebleCriteria.filtroSuperficie(dto, this);
-            inmuebleCriteria.filtroBanos(dto, this);
-            inmuebleCriteria.filtroHabitaciones(dto, this);
+            inmuebleCriteria = rep.filtroCiudad(dto, inmuebleCriteria);
+            // inmuebleCriteria = filtroPrecio(dto, inmuebleCriteria);
+            // inmuebleCriteria = filtroSuperficie(dto, inmuebleCriteria);
+            // inmuebleCriteria = filtroBanos(dto, inmuebleCriteria);
+            // inmuebleCriteria = filtroHabitaciones(dto, inmuebleCriteria);
         }
         return inmuebleCriteria;
     }
