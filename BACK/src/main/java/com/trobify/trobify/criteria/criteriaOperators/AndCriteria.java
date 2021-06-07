@@ -2,8 +2,7 @@ package com.trobify.trobify.criteria.criteriaOperators;
 
 import java.util.List;
 
-import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
+import com.trobify.trobify.clases.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
 import org.springframework.data.jpa.domain.Specification;
 

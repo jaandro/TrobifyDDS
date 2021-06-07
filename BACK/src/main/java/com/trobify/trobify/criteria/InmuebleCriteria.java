@@ -2,7 +2,6 @@ package com.trobify.trobify.criteria;
 
 import java.util.List;
 
-import com.trobify.trobify.controladores.InmuebleController;
 import com.trobify.trobify.criteria.criteriaOperators.ICriteria;
 import com.trobify.trobify.dto.BusquedaDTO;
 
@@ -162,8 +161,8 @@ public class InmuebleCriteria {
 
     public List<ICriteria> filtroCiudad(BusquedaDTO dto, List<ICriteria> criterias) {
         if(!StringUtils.isBlank(dto.getCiudad())) {
-            ICriteria precioCriteria = new superficieCriteria();
-            criterias.add(precioCriteria);
+            ICriteria ciudadCriteria = new ciudadCriteria();
+            criterias.add(ciudadCriteria);
         }
         return criterias;
     }

@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.persistence.metamodel.SingularAttribute;
 
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble_;
+import com.trobify.trobify.clases.Inmueble;
+import com.trobify.trobify.clases.Inmueble_;
 import com.trobify.trobify.criteria.criteriaOperators.ICriteria;
 import com.trobify.trobify.dto.BusquedaDTO;
 

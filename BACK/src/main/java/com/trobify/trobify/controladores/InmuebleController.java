@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.trobify.trobify.clases.ImagenesBDA;
-import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
+import com.trobify.trobify.clases.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
 import com.trobify.trobify.criteria.superficieCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.AndCriteria;

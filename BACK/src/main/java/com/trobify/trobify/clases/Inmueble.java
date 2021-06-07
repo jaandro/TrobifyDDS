@@ -1,4 +1,4 @@
-package com.trobify.trobify.clases.InmuebleFabrica;
+package com.trobify.trobify.clases;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,16 +17,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.trobify.trobify.clases.Foto;
-import com.trobify.trobify.clases.Servicios;
-import com.trobify.trobify.clases.TipoVivienda;
-import com.trobify.trobify.dto.InmuebleDTO;
-
-import org.hibernate.dialect.Ingres10Dialect;
 
 @Entity
 @Table(name = "inmueble")
-public abstract class Inmueble {
+public class Inmueble {
 
     @Id
     @Column
@@ -34,31 +28,35 @@ public abstract class Inmueble {
     private int id;
 
     @Column
-    protected int superficie;
+    private int superficie;
     @Column
-    protected String descripcion;
+    private String descripcion;
     @Column
-    protected String latitud;
+    private String latitud;
     @Column
-    protected String longitud;
+    private String longitud;
     @Column
-    protected String ciudad;
+    private String ciudad;
     @Column
-    protected String pais;
+    private String pais;
     @Column
-    protected double precio;
+    private int precio;
     @Column
-    protected int numBanos;
+    private int numBanos;
     @Column
-    protected int numHabitaciones;
+    private int numHabitaciones;
     @Column
-    protected String estado;
+    private String estado;
     @Column
-    protected boolean ascensor;
+    private boolean ascensor;
     @Column 
-    protected boolean amueblado;
+    private boolean amueblado;
     @Column
-    protected int planta;
+    private int planta;
+    @Column(nullable = true)
+    private double consumoEnergia;
+    // @Column(nullable = true)
+    // private Date fechaConstruccion;
 
     @OneToMany(mappedBy = "inmueble", cascade = CascadeType.ALL)
     public List<Foto> fotos;
@@ -82,23 +80,6 @@ public abstract class Inmueble {
     private List<TipoVivienda> tipoViviendas;
    
 
-    // public Inmueble(InmuebleDTO inmuebleDTO) {
-    //     this.superficie = inmuebleDTO.superficie;
-    //     this.descripcion = inmuebleDTO.descripcion;
-    //     this.latitud = inmuebleDTO.latitud;
-    //     this.longitud = inmuebleDTO.longitud;
-    //     this.ciudad = inmuebleDTO.ciudad;
-    //     this.pais = inmuebleDTO.pais;
-    //     this.numBanos = inmuebleDTO.numBanos;
-    //     this.numHabitaciones = inmuebleDTO.numHabitaciones;
-    //     this.estado = inmuebleDTO.estado;
-    //     this.ascensor = inmuebleDTO.ascensor;
-    //     this.amueblado = inmuebleDTO.amueblado;
-    //     this.fechaConstruccion = inmuebleDTO.fechaConstruccion;
-    // }
-
-    // public abstract void hola();
-
     public void addServicio(Servicios servicio){
         if(this.servicios == null){
             this.servicios = new ArrayList<>();
@@ -115,20 +96,39 @@ public abstract class Inmueble {
         this.tipoViviendas.add(tipo);
     }
 
+    public Inmueble() {
+    }
+
+    public Inmueble(int superficie, String descripcion, String latitud, String longitud, String ciudad,
+            String pais, int precio, int numBanos, int numHabitaciones, String estado, boolean ascensor,
+            boolean amueblado, int planta, double consumoEnergia, Date fechaConstruccion, List<Foto> fotos,
+            List<Servicios> servicios, List<TipoVivienda> tipoViviendas) {
+        this.superficie = superficie;
+        this.descripcion = descripcion;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.ciudad = ciudad;
+        this.pais = pais;
+        this.precio = precio;
+        this.numBanos = numBanos;
+        this.numHabitaciones = numHabitaciones;
+        this.estado = estado;
+        this.ascensor = ascensor;
+        this.amueblado = amueblado;
+        this.planta = planta;
+        this.consumoEnergia = consumoEnergia;
+        // this.fechaConstruccion = fechaConstruccion;
+        this.fotos = fotos;
+        this.servicios = servicios;
+        this.tipoViviendas = tipoViviendas;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
     }
 
     public int getSuperficie() {
@@ -179,6 +179,14 @@ public abstract class Inmueble {
         this.pais = pais;
     }
 
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
     public int getNumBanos() {
         return numBanos;
     }
@@ -227,6 +235,22 @@ public abstract class Inmueble {
         this.planta = planta;
     }
 
+    public double getConsumoEnergia() {
+        return consumoEnergia;
+    }
+
+    public void setConsumoEnergia(double consumoEnergia) {
+        this.consumoEnergia = consumoEnergia;
+    }
+
+    // public Date getFechaConstruccion() {
+    //     return fechaConstruccion;
+    // }
+
+    // public void setFechaConstruccion(Date fechaConstruccion) {
+    //     this.fechaConstruccion = fechaConstruccion;
+    // }
+
     public List<Foto> getFotos() {
         return fotos;
     }
@@ -253,12 +277,14 @@ public abstract class Inmueble {
 
     @Override
     public String toString() {
-        return "Inmueble [amueblado=" + amueblado + ", ascensor=" + ascensor + ", ciudad=" + ciudad + ", descripcion="
-                + descripcion + ", estado=" + estado  + ", fotos=" + fotos
-                + ", id=" + id + ", latitud=" + latitud + ", longitud=" + longitud + ", numBanos=" + numBanos
-                + ", numHabitaciones=" + numHabitaciones + ", pais=" + pais + ", planta=" + planta + ", precio="
-                + precio + ", servicios=" + servicios + ", superficie=" + superficie + ", tipoViviendas="
-                + tipoViviendas + "]";
+        return "Inmueble [amueblado=" + amueblado + ", ascensor=" + ascensor + ", ciudad=" + ciudad
+                + ", consumoEnergia=" + consumoEnergia + ", descripcion=" + descripcion + ", estado=" + estado
+                +  ", fotos=" + fotos + ", id=" + id + ", latitud="
+                + latitud + ", longitud=" + longitud + ", numBanos=" + numBanos + ", numHabitaciones=" + numHabitaciones
+                + ", pais=" + pais + ", planta=" + planta + ", precio=" + precio + ", servicios=" + servicios
+                + ", superficie=" + superficie + ", tipoViviendas=" + tipoViviendas + "]";
     }
+
+    
    
 }

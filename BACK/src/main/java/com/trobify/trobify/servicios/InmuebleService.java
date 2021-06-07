@@ -8,16 +8,13 @@ import java.util.function.Function;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
 
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble_;
+import com.trobify.trobify.clases.Inmueble_;
 import com.trobify.trobify.adapter.Adapter;
 import com.trobify.trobify.adapter.userAdapter;
 import com.trobify.trobify.clases.Usuario;
-import com.trobify.trobify.clases.InmuebleFabrica.Creador;
-import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
-import com.trobify.trobify.clases.InmuebleFabrica.InmbuebleAlquiler;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
-import com.trobify.trobify.clases.InmuebleFabrica.InmuebleCompra;
+import com.trobify.trobify.clases.Inmueble;
 import com.trobify.trobify.criteria.InmuebleCriteria;
+import com.trobify.trobify.criteria.ciudadCriteria;
 import com.trobify.trobify.criteria.superficieCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.AndCriteria;
 import com.trobify.trobify.criteria.criteriaOperators.ICriteria;
@@ -32,6 +29,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import io.github.jhipster.service.QueryService;
+import io.github.jhipster.service.filter.IntegerFilter;
+import io.github.jhipster.service.filter.StringFilter;
 
 @Service
 public class InmuebleService extends QueryService<Inmueble> implements InmuebleInterface {
@@ -41,7 +40,9 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
 
     public List<Inmueble> getInmueblesFiltrados(List<ICriteria> criterias){
 
-        // //creamos neestras instancias de criteria
+        return testInmueblesSuperficie();
+
+        // creamos neestras instancias de criteria
         // ICriteria precioCriteria = new superficieCriteria();
 
         // //añadimos las instancias de criteria en una list
@@ -49,29 +50,29 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
         // criterias.add(precioCriteria);
 
         //se crea un operación and con la lista de criterios a filtrar
-        ICriteria filtros = new AndCriteria(criterias);
+        // ICriteria filtros = new AndCriteria(criterias);
 
-        InmuebleCriteria criteria = new InmuebleCriteria();
-        Specification<Inmueble> specification = Specification.where(null);
+        // InmuebleCriteria criteria = new InmuebleCriteria();
+        // Specification<Inmueble> specification = Specification.where(null);
 
-        //recuperamos la lista de inmuebles filtrada segun los parametros de busqueda
-        Specification<Inmueble> filtrados = filtros.meetCriteria(specification, criteria);
-        List<Inmueble> inmueblesFiltrados = inmuebleRep.findAll(filtrados);
-        System.out.println(inmueblesFiltrados);
+        // //recuperamos la lista de inmuebles filtrada segun los parametros de busqueda
+        // Specification<Inmueble> filtrados = filtros.meetCriteria(specification, criteria);
+        // List<Inmueble> inmueblesFiltrados = inmuebleRep.findAll(filtrados);
+        // System.out.println(inmueblesFiltrados);
 
-        System.out.println("--------------------------------------ADAPTER--------------------------------------");
-        List<userAdapter> users = new ArrayList<>();
+        // System.out.println("--------------------------------------ADAPTER--------------------------------------");
+        // List<userAdapter> users = new ArrayList<>();
 
-        Usuario userBDA = new Usuario();
-        users.add(userBDA);
+        // Usuario userBDA = new Usuario();
+        // users.add(userBDA);
         
-        UserDTO userDTO = new UserDTO();
-        users.add(new Adapter(userDTO));
+        // UserDTO userDTO = new UserDTO();
+        // users.add(new Adapter(userDTO));
 
-        System.out.println(users.get(0).toString());
-        System.out.println(users.get(1).toString());
+        // System.out.println(users.get(0).toString());
+        // System.out.println(users.get(1).toString());
 
-        return inmueblesFiltrados;
+        //return inmueblesFiltrados;
     }
 
     private Specification<Inmueble> createSpecification(InmuebleCriteria criteria) { // como si hicieramos una query
@@ -108,6 +109,30 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
     public List<Inmueble> getInmueblesFiltrados(InmuebleCriteria inmuebleCriteria) {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    public List<Inmueble> testInmueblesSuperficie() {
+
+        List<ICriteria> criterias = new ArrayList<ICriteria> ();
+
+        ICriteria superficieCriteria = new superficieCriteria();
+        criterias.add(superficieCriteria);
+
+        ICriteria filtros = new AndCriteria(criterias);
+
+        IntegerFilter filter = new IntegerFilter();
+        filter.setEquals(2);
+
+        InmuebleCriteria criteria = new InmuebleCriteria();
+        criteria.setSuperficie(filter);
+
+        Specification<Inmueble> specification = Specification.where(null);
+
+        Specification<Inmueble> filtrados = filtros.meetCriteria(specification, criteria);
+        List<Inmueble> inmueblesFiltrados = inmuebleRep.findAll(filtrados);
+        System.out.println(inmueblesFiltrados);
+
+        return inmueblesFiltrados;
     }
     
 }

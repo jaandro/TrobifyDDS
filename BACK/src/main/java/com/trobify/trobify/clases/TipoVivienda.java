@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
+import com.trobify.trobify.clases.Inmueble;
 
 @Entity
 @Table(name = "tipovivienda")

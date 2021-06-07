@@ -5,8 +5,6 @@ import java.util.List;
 import com.trobify.trobify.clases.Foto;
 import com.trobify.trobify.clases.Servicios;
 import com.trobify.trobify.clases.TipoVivienda;
-import com.trobify.trobify.clases.InmuebleFabrica.CreadorInmueble;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
 import com.trobify.trobify.dto.InmuebleDTO;
 import com.trobify.trobify.servicios.crudInmuebleService;
 import com.trobify.trobify.servicios.fotosService;
@@ -25,20 +23,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/addEditInmueble")
 @CrossOrigin(origins = "http://localhost:4200")
 public class addEditController {
-    @Autowired
-    private crudInmuebleService crudService;
+    // @Autowired
+    // private crudInmuebleService crudService;
 
-        @Autowired
-        private fotosService fotosService;
+    //     @Autowired
+    //     private fotosService fotosService;
     
-    @Autowired
-    private serviciosInmuebleService serviciosService;
+    // @Autowired
+    // private serviciosInmuebleService serviciosService;
 
-    @Autowired
-    private tipoViviendaService tipoViviendaservice;
+    // @Autowired
+    // private tipoViviendaService tipoViviendaservice;
 
-    @PostMapping
-    public void recibeInmueble(@RequestBody Inmueble inmueble){
-        crudService.saveInmueble(inmueble);
-    }
+    // @PostMapping
+    // public void recibeInmueble(@RequestBody Inmueble inmueble){
+    //     crudService.saveInmueble(inmueble);
+    // }
 }

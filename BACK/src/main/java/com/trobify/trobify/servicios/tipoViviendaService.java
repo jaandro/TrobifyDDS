@@ -1,7 +1,7 @@
 package com.trobify.trobify.servicios;
 
 import com.trobify.trobify.clases.TipoVivienda;
-import com.trobify.trobify.clases.InmuebleFabrica.Inmueble;
+import com.trobify.trobify.clases.Inmueble;
 import com.trobify.trobify.repositorios.tipoViviendaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
