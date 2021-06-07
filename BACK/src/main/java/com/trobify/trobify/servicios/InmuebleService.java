@@ -40,7 +40,7 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
 
     public List<Inmueble> getInmueblesFiltrados(List<ICriteria> criterias){
 
-        return testInmueblesSuperficie();
+        return testInmueblesSuperficieAndCiudad();
 
         // creamos neestras instancias de criteria
         // ICriteria precioCriteria = new superficieCriteria();
@@ -111,20 +111,27 @@ public class InmuebleService extends QueryService<Inmueble> implements InmuebleI
         return null;
     }
 
-    public List<Inmueble> testInmueblesSuperficie() {
+    public List<Inmueble> testInmueblesSuperficieAndCiudad() {
 
         List<ICriteria> criterias = new ArrayList<ICriteria> ();
 
         ICriteria superficieCriteria = new superficieCriteria();
         criterias.add(superficieCriteria);
 
+        ICriteria ciudadCriteria = new ciudadCriteria();
+        criterias.add(ciudadCriteria);
+
         ICriteria filtros = new AndCriteria(criterias);
 
-        IntegerFilter filter = new IntegerFilter();
-        filter.setEquals(2);
+        IntegerFilter filterSuperficie = new IntegerFilter();
+        filterSuperficie.setEquals(2);
+
+        StringFilter filterCiudad = new StringFilter();
+        filterCiudad.setEquals("Valencia");
 
         InmuebleCriteria criteria = new InmuebleCriteria();
-        criteria.setSuperficie(filter);
+        criteria.setSuperficie(filterSuperficie);
+        criteria.setCiudad(filterCiudad);
 
         Specification<Inmueble> specification = Specification.where(null);
 
